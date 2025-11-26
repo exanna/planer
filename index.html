@@ -1,0 +1,173 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+    <title>DayMaster CyberPlan</title>
+    <link rel="manifest" href="/manifest.json">
+    <link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/3655/3655581.png">
+    <meta name="theme-color" content="#202023" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Rajdhani', 'sans-serif'],
+              mono: ['"Share Tech Mono"', 'monospace'],
+            },
+            colors: {
+              cyber: {
+                black: 'var(--cyber-black)',
+                dark: 'var(--cyber-dark)',
+                panel: 'var(--cyber-panel)',
+                light: 'var(--cyber-light)',
+                text: {
+                  main: 'var(--cyber-text-main)',
+                  muted: 'var(--cyber-text-muted)',
+                },
+                red: 'var(--cyber-red)',
+                blue: 'var(--cyber-blue)',
+                yellow: 'var(--cyber-yellow)',
+                purple: 'var(--cyber-purple)',
+                green: 'var(--cyber-green)',
+              }
+            },
+            fontSize: {
+              // Scalable font system based on CSS variables
+              'micro': 'calc(var(--font-size-micro) * var(--font-scale))',
+              'xs': 'calc(var(--font-size-xs) * var(--font-scale))',
+              'sm': 'calc(var(--font-size-sm) * var(--font-scale))',
+              'base': 'calc(var(--font-size-base) * var(--font-scale))',
+              'lg': 'calc(var(--font-size-lg) * var(--font-scale))',
+              'xl': 'calc(var(--font-size-xl) * var(--font-scale))',
+              '2xl': 'calc(var(--font-size-2xl) * var(--font-scale))',
+              '3xl': 'calc(var(--font-size-3xl) * var(--font-scale))',
+              '4xl': 'calc(var(--font-size-4xl) * var(--font-scale))',
+              '5xl': 'calc(var(--font-size-5xl) * var(--font-scale))',
+              '6xl': 'calc(var(--font-size-6xl) * var(--font-scale))',
+              'hero': 'calc(var(--font-size-hero) * var(--font-scale))',
+            },
+            boxShadow: {
+              'neon-red': '0 0 5px var(--cyber-red), 0 0 20px rgba(255, 0, 60, 0.3)',
+              'neon-blue': '0 0 5px var(--cyber-blue), 0 0 20px rgba(0, 240, 255, 0.3)',
+            },
+            animation: {
+              'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              'view-transition': 'viewTransition 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards',
+              'slide-in-right': 'slideInRight 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards',
+            },
+            keyframes: {
+              viewTransition: {
+                '0%': { opacity: '0', transform: 'translateY(10px) scale(0.99)' },
+                '100%': { opacity: '1', transform: 'translateY(0) scale(1)' },
+              },
+              slideInRight: {
+                '0%': { transform: 'translateX(100%)' },
+                '100%': { transform: 'translateX(0)' },
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script type="importmap">
+    {
+      "imports": {
+        "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0",
+        "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
+        "react/": "https://aistudiocdn.com/react@^19.2.0/",
+        "react": "https://aistudiocdn.com/react@^19.2.0",
+        "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/"
+      }
+    }
+    </script>
+    <style>
+      :root {
+        /* -- Global Font Scale Multiplier -- */
+        --font-scale: 1;
+
+        /* -- Font Size Definitions (Base pixels) -- */
+        --font-size-micro: 10px;
+        --font-size-xs: 12px;
+        --font-size-sm: 14px;
+        --font-size-base: 16px;
+        --font-size-lg: 18px;
+        --font-size-xl: 20px;
+        --font-size-2xl: 24px;
+        --font-size-3xl: 30px;
+        --font-size-4xl: 36px;
+        --font-size-5xl: 48px;
+        --font-size-6xl: 60px;
+        --font-size-hero: 72px;
+
+        /* -- Theme: Dark Cyberpunk (Default) -- */
+        --cyber-black: #202023;
+        --cyber-dark: #2a2a2e;
+        --cyber-panel: #3f3f46;
+        --cyber-light: #71717a;
+        --cyber-text-main: #e2e8f0;
+        --cyber-text-muted: #94a3b8;
+        
+        --cyber-red: #ff003c;
+        --cyber-blue: #00f0ff;
+        --cyber-yellow: #fcee0a;
+        --cyber-purple: #d946ef;
+        --cyber-green: #39ff14;
+      }
+
+      /* -- Theme: Industrial Silver (Light) -- */
+      .theme-light {
+        --cyber-black: #e5e5e5;
+        --cyber-dark: #d4d4d4;
+        --cyber-panel: #a3a3a3;
+        --cyber-light: #525252;
+        --cyber-text-main: #171717;
+        --cyber-text-muted: #525252;
+        
+        /* Accents remain similar but slightly adjusted for contrast if needed */
+        --cyber-red: #dc2626; 
+        --cyber-blue: #0284c7;
+        --cyber-yellow: #d97706; 
+        --cyber-purple: #9333ea;
+        --cyber-green: #16a34a; 
+      }
+
+      /* Custom scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: var(--cyber-black); 
+      }
+      ::-webkit-scrollbar-thumb {
+        background: var(--cyber-panel); 
+        border-radius: 0px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: var(--cyber-red); 
+      }
+      
+      input, button, div, select {
+        border-radius: 0 !important;
+      }
+
+      /* Viewport height fix for mobile */
+      html, body {
+        height: 100%;
+        overscroll-behavior-y: none;
+      }
+    </style>
+  </head>
+  <body class="bg-cyber-black text-cyber-text-main antialiased selection:bg-cyber-red selection:text-white transition-colors duration-300">
+    <div id="root" class="h-full"></div>
+  </body>
+</html>

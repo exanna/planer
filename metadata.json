@@ -1,0 +1,5 @@
+{
+  "name": "Planer Stable 1.0",
+  "description": "Inteligentny planer dnia pozwalający zarządzać czasem z podziałem na dni pracujące i wolne. Twórz szablony, przypisuj je do kalendarza i generuj optymalne plany dnia przy użyciu AI.",
+  "requestFramePermissions": []
+}

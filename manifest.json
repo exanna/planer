@@ -1,0 +1,44 @@
+{
+  "short_name": "DayMaster",
+  "name": "DayMaster CyberPlan AI",
+  "description": "DayMaster to futurystyczny planer dnia, który pomaga zarządzać czasem, dzieląc dni na pracujące i wolne. Twórz szablony, korzystaj z AI do generowania harmonogramów i śledź swoje postępy w stylu Cyberpunk.",
+  "lang": "pl",
+  "dir": "ltr",
+  "start_url": ".",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#202023",
+  "background_color": "#202023",
+  "categories": [
+    "productivity",
+    "lifestyle",
+    "utilities"
+  ],
+  "icons": [
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/3655/3655581.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/3655/3655581.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "https://via.placeholder.com/1080x1920/202023/ff003c?text=DayMaster+Cyber+Interface",
+      "sizes": "1080x1920",
+      "type": "image/png",
+      "form_factor": "wide"
+    },
+    {
+      "src": "https://via.placeholder.com/600x1200/202023/00f0ff?text=AI+Schedule+Generator",
+      "sizes": "600x1200",
+      "type": "image/png",
+      "form_factor": "narrow"
+    }
+  ],
+  "prefer_related_applications": false
+}
